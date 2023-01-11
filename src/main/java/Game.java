@@ -8,7 +8,7 @@ public class Game extends JFrame {
         super("Snake");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(false);
-        GamePanel gp = new GamePanel();
+        final GamePanel gp = new GamePanel();
         gp.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {}
@@ -17,10 +17,18 @@ public class Game extends JFrame {
             public void keyPressed(KeyEvent e) {
                 int keyCode = e.getKeyCode();
                 switch (keyCode) {
-                    case KeyEvent.VK_UP ->  gp.changeDirection(0);
-                    case KeyEvent.VK_RIGHT -> gp.changeDirection(1);
-                    case KeyEvent.VK_DOWN -> gp.changeDirection(2);
-                    case KeyEvent.VK_LEFT -> gp.changeDirection(3);
+                    case KeyEvent.VK_UP:
+						gp.changeDirection(0);
+						break;
+                    case KeyEvent.VK_RIGHT:
+						gp.changeDirection(1);
+						break;
+                    case KeyEvent.VK_DOWN:
+						gp.changeDirection(2);
+						break;
+					case KeyEvent.VK_LEFT:
+						gp.changeDirection(3);
+						break;
                 }
             }
 

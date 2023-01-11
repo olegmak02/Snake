@@ -44,9 +44,6 @@ public class GamePanel extends JPanel {
                     gameOver();
                 }
                 if (foundFood()) {
-                    System.out.println(snake.getXs());
-                    System.out.println(snake.getYs());
-                    System.out.println("=================");
                     growUp();
                     newFood();
                 }
@@ -110,23 +107,23 @@ public class GamePanel extends JPanel {
     private void move() {
         int x, y;
         switch (snake.getDirection()) {
-            case 0 -> {
+            case 0:
                 x = snake.getXs().get(0);
                 y = snake.getYs().get(0) - 1;
-            }
-            case 1 -> {
+				break;
+            case 1:
                 x = snake.getXs().get(0) + 1;
                 y = snake.getYs().get(0);
-            }
-            case 2 -> {
+				break;
+            case 2:
                 x = snake.getXs().get(0);
                 y = snake.getYs().get(0) + 1;
-            }
-            case 3 -> {
+				break;
+            case 3:
                 x = snake.getXs().get(0) - 1;
                 y = snake.getYs().get(0);
-            }
-            default -> throw new IllegalStateException("Unexpected value: " + snake.getDirection());
+				break;
+            default: throw new IllegalStateException("Unexpected value: " + snake.getDirection());
         }
 
         for (int i = snake.getLength() - 1; i > 0; i--) {
